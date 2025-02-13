@@ -1,0 +1,309 @@
+{
+  "consumer": {
+    "name": "WeatherForecast"
+  },
+  "interactions": [
+    {
+      "description": "Get User details by user id",
+      "pending": false,
+      "providerStates": [
+        {
+          "name": "User without access"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "path": "/api/users/2a69e26a-d392-41b1-82e6-68b3e4a869fb"
+      },
+      "response": {
+        "body": {
+          "content": {
+            "email": "NotPermitedUser@user,com",
+            "hasAccess": false,
+            "name": "NotPermitedUser"
+          },
+          "contentType": "application/json",
+          "encoded": false
+        },
+        "headers": {
+          "Content-Type": [
+            "application/json"
+          ]
+        },
+        "matchingRules": {
+          "body": {
+            "$.email": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "regex",
+                  "regex": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$"
+                }
+              ]
+            },
+            "$.name": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            }
+          }
+        },
+        "status": 200
+      },
+      "type": "Synchronous/HTTP"
+    },
+    {
+      "description": "Get User details by user id",
+      "pending": false,
+      "providerStates": [
+        {
+          "name": "User with access"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "path": "/api/users/757d4594-79b2-480c-8fc4-ddd7061c18cb"
+      },
+      "response": {
+        "body": {
+          "content": {
+            "email": "PermitedUser@user.com",
+            "hasAccess": true,
+            "name": "PermitedUser"
+          },
+          "contentType": "application/json",
+          "encoded": false
+        },
+        "headers": {
+          "Content-Type": [
+            "application/json"
+          ]
+        },
+        "matchingRules": {
+          "body": {
+            "$.email": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "regex",
+                  "regex": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$"
+                }
+              ]
+            },
+            "$.name": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            }
+          }
+        },
+        "status": 200
+      },
+      "type": "Synchronous/HTTP"
+    },
+    {
+      "description": "Get Users filtered by name",
+      "pending": false,
+      "providerStates": [
+        {
+          "name": "Not existing User"
+        }
+      ],
+      "request": {
+        "matchingRules": {
+          "query": {
+            "name": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "equality"
+                }
+              ]
+            }
+          }
+        },
+        "method": "GET",
+        "path": "/api/users",
+        "query": {
+          "name": [
+            "NotExistingUser"
+          ]
+        }
+      },
+      "response": {
+        "body": {
+          "content": [],
+          "contentType": "application/json",
+          "encoded": false
+        },
+        "headers": {
+          "Content-Type": [
+            "application/json"
+          ]
+        },
+        "status": 200
+      },
+      "type": "Synchronous/HTTP"
+    },
+    {
+      "description": "Get Users filtered by name",
+      "pending": false,
+      "providerStates": [
+        {
+          "name": "User with access"
+        }
+      ],
+      "request": {
+        "matchingRules": {
+          "query": {
+            "name": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "equality"
+                }
+              ]
+            }
+          }
+        },
+        "method": "GET",
+        "path": "/api/users",
+        "query": {
+          "name": [
+            "PermitedUser"
+          ]
+        }
+      },
+      "response": {
+        "body": {
+          "content": [
+            {
+              "email": "PermitedUser@user.com",
+              "id": "757d4594-79b2-480c-8fc4-ddd7061c18cb",
+              "name": "PermitedUser"
+            }
+          ],
+          "contentType": "application/json",
+          "encoded": false
+        },
+        "headers": {
+          "Content-Type": [
+            "application/json"
+          ]
+        },
+        "matchingRules": {
+          "body": {
+            "$[0].email": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "regex",
+                  "regex": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$"
+                }
+              ]
+            },
+            "$[0].name": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            }
+          }
+        },
+        "status": 200
+      },
+      "type": "Synchronous/HTTP"
+    },
+    {
+      "description": "Get Users filtered by name",
+      "pending": false,
+      "providerStates": [
+        {
+          "name": "User without access"
+        }
+      ],
+      "request": {
+        "matchingRules": {
+          "query": {
+            "name": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "equality"
+                }
+              ]
+            }
+          }
+        },
+        "method": "GET",
+        "path": "/api/users",
+        "query": {
+          "name": [
+            "NotPermitedUser"
+          ]
+        }
+      },
+      "response": {
+        "body": {
+          "content": [
+            {
+              "email": "NotPermitedUser@user,com",
+              "id": "2a69e26a-d392-41b1-82e6-68b3e4a869fb",
+              "name": "NotPermitedUser"
+            }
+          ],
+          "contentType": "application/json",
+          "encoded": false
+        },
+        "headers": {
+          "Content-Type": [
+            "application/json"
+          ]
+        },
+        "matchingRules": {
+          "body": {
+            "$[0].email": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "regex",
+                  "regex": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$"
+                }
+              ]
+            },
+            "$[0].name": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            }
+          }
+        },
+        "status": 200
+      },
+      "type": "Synchronous/HTTP"
+    }
+  ],
+  "metadata": {
+    "pactRust": {
+      "ffi": "0.4.23",
+      "models": "1.2.5"
+    },
+    "pactSpecification": {
+      "version": "4.0"
+    }
+  },
+  "provider": {
+    "name": "UsersPermissions"
+  }
+}

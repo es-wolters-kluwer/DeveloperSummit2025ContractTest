@@ -7,6 +7,11 @@ This solution is a *monorepo* that it contains three API's:
 
 This solutions is only intended to show how **Contract Test** works.
 
+# Course
+
+1. [Use Case Bad Implementation](./course/01-UseCaseBadImplementation.md)
+2. [Consumer Contract Test]
+
 # Configuration
 
 It is needed to configure the environment variable **USERS_PERMISSIONS_API_URL** with the *Users Permissions URL* before executing the projects **DevSummit.WeatherForecast** and **DevSummit.Blog**.
