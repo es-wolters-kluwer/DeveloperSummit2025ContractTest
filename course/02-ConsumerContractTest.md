@@ -330,7 +330,7 @@ public class BlogApiTests : IClassFixture<PactService>
     public BlogApiTests(PactService pactService, ITestOutputHelper output)
     {
         _factory = new CustomWebApplicationFactory<Program>();
-        _pactBuilder = pactService.CreatePactBuilder("Blog", "UserPermissions", output);
+        _pactBuilder = pactService.CreatePactBuilder("Blog", "UsersPermissions", output);
     }
 
     #region GetBlogPosts
