@@ -10,7 +10,8 @@ This solutions is only intended to show how **Contract Test** works.
 # Course
 
 1. [Use Case Bad Implementation](./course/01-UseCaseBadImplementation.md)
-2. [Consumer Contract Test]
+2. [Consumer Contract Test](./course/02-ConsumerContractTest.md)
+3. [Provider Contract Test](./course/03-ProviderContractTest.md)
 
 # Configuration
 

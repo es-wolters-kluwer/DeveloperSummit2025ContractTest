@@ -49,7 +49,7 @@ public class UsersRepository : IUsersRepository
     {
         if (!string.IsNullOrEmpty(name))
         {
-            return users.Where(u => u.Name != null && u.Name.Contains(name, StringComparison.OrdinalIgnoreCase));
+            return users.Where(u => u.Name != null && u.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
         }
         return users;
     }
