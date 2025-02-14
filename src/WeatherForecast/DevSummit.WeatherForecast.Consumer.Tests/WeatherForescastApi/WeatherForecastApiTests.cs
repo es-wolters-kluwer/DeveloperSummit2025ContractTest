@@ -1,6 +1,5 @@
-﻿using DevSummit.WeatherForecast.Api.Domain.Entities;
-using DevSummit.WeatherForecast.Consumer.Tests.Pact;
-using Microsoft.VisualStudio.TestPlatform.TestHost;
+﻿using DevSummit.Commons.Pact;
+using DevSummit.WeatherForecast.Api.Domain.Entities;
 using PactNet;
 using System.Net;
 using System.Text.Json;

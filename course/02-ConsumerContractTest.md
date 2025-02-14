@@ -17,13 +17,13 @@ The next step is create all initializations for Pact.
 In the folder **Pact** we write the class *PactService*
 
 ```csharp
-using DevSummit.WeatherForecast.Consumer.Tests.Pact.Logger;
+using DevSummit.Commons.Pact.Logger;
 using PactNet;
 using PactNet.Infrastructure.Outputters;
 using System.Text.Json;
 using Xunit.Abstractions;
 
-namespace DevSummit.WeatherForecast.Consumer.Tests.Pact;
+namespace DevSummit.Commons.Pact;
 public class PactService
 {
     private readonly PactConfig _pactConfig;
@@ -51,7 +51,7 @@ public class PactService
 ```
 And the logger for xunit in folder **Pact/Logger**
 ```csharp
-namespace DevSummit.WeatherForecast.Consumer.Tests.Pact.Logger;
+namespace DevSummit.Commons.Pact.Logger;
 
 using PactNet.Infrastructure.Outputters;
 using Xunit.Abstractions;
@@ -101,8 +101,7 @@ public partial class Program {}
 2. **WeatherForecastApiTests** Create the tests class for the three use cases.
 ```csharp
 using DevSummit.WeatherForecast.Api.Domain.Entities;
-using DevSummit.WeatherForecast.Consumer.Tests.Pact;
-using Microsoft.VisualStudio.TestPlatform.TestHost;
+using DevSummit.Commons.Pact;
 using PactNet;
 using System.Net;
 using System.Text.Json;
@@ -247,7 +246,6 @@ Implement the following use cases:
 - Giving an user with access when he get all the articles then the API returns OK.
 - Giving an user without access when he get all the articles then the API returns unauthorized.
 - Giving an inexistent user when he get all the articles then the API returns unauthorized.
-
 
 
 

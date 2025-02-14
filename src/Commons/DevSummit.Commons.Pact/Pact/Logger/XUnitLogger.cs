@@ -1,4 +1,4 @@
-﻿namespace DevSummit.WeatherForecast.Consumer.Tests.Pact.Logger;
+﻿namespace DevSummit.Commons.Pact.Logger;
 
 using PactNet.Infrastructure.Outputters;
 using Xunit.Abstractions;

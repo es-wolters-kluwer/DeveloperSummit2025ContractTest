@@ -1,10 +1,10 @@
-﻿using DevSummit.WeatherForecast.Consumer.Tests.Pact.Logger;
+﻿using DevSummit.Commons.Pact.Logger;
 using PactNet;
 using PactNet.Infrastructure.Outputters;
 using System.Text.Json;
 using Xunit.Abstractions;
 
-namespace DevSummit.WeatherForecast.Consumer.Tests.Pact;
+namespace DevSummit.Commons.Pact;
 public class PactService
 {
     private readonly PactConfig _pactConfig;
