@@ -12,6 +12,7 @@ This solutions is only intended to show how **Contract Test** works.
 1. [Use Case Bad Implementation](./course/01-UseCaseBadImplementation.md)
 2. [Consumer Contract Test](./course/02-ConsumerContractTest.md)
 3. [Provider Contract Test](./course/03-ProviderContractTest.md)
+4. [Integration With Pact Broker](./course/04-IntegrateWithPactBroker.md)
 
 # Configuration
 

@@ -1,4 +1,5 @@
 ﻿using DevSummit.Commons.Pact.Logger;
+using DevSummit.Commons.Pact.Pact.Extensions;
 using PactNet;
 using PactNet.Infrastructure.Outputters;
 using PactNet.Verifier;
@@ -11,7 +12,7 @@ public class BlogTests
 {
     private readonly TestServerFixture _fixture;
     private readonly PactVerifierConfig _pactConfig;
-    private const string pactPath = "../../../../../../pacts/Blog-UsersPermissions.json";
+
     public BlogTests(TestServerFixture fixture, ITestOutputHelper output)
     {
         _fixture = fixture;
@@ -30,7 +31,7 @@ public class BlogTests
     {
         using var pactVerifier = new PactVerifier("UsersPermissions", _pactConfig);
         pactVerifier.WithHttpEndpoint(new Uri(_fixture.Url))
-            .WithFileSource(new FileInfo(pactPath))
+            .WithPactFromConfiguration("UsersPermissions", "Blog", _fixture.Configuration)
             .WithProviderStateUrl(new Uri(_fixture.Url + "/provider-states"))
             .Verify();
     }

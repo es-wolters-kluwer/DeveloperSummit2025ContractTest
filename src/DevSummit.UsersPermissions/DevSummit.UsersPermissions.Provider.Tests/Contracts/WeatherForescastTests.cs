@@ -1,4 +1,5 @@
 ﻿using DevSummit.Commons.Pact.Logger;
+using DevSummit.Commons.Pact.Pact.Extensions;
 using PactNet;
 using PactNet.Infrastructure.Outputters;
 using PactNet.Verifier;
@@ -11,7 +12,7 @@ public class WeatherForescastTests
 {
     private readonly TestServerFixture _fixture;
     private readonly PactVerifierConfig _pactConfig;
-    private const string pactPath = "../../../../../../pacts/WeatherForecast-UsersPermissions.json";
+    
     public WeatherForescastTests(TestServerFixture fixture, ITestOutputHelper output)
     {
         _fixture = fixture;
@@ -30,7 +31,7 @@ public class WeatherForescastTests
     {
         using var pactVerifier = new PactVerifier("UsersPermissions", _pactConfig);
         pactVerifier.WithHttpEndpoint(new Uri(_fixture.Url))
-            .WithFileSource(new FileInfo(pactPath))
+            .WithPactFromConfiguration("UsersPermissions", "WeatherForecast", _fixture.Configuration)
             .WithProviderStateUrl(new Uri(_fixture.Url + "/provider-states"))
             .Verify();
     }
