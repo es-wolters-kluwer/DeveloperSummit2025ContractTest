@@ -1,4 +1,4 @@
-# 1. Use Case Bad Implementation
+# Use Case Bad Implementation
 
 This is an example of what happens when the services are developed without taking care to maintain the interfaces for all consumers of the **UserPermissions** service.
 In this case the **Blog** service works fine, but the users can't get the **Weather Forecast** because this API fails. 

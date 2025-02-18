@@ -1,4 +1,5 @@
 ﻿using DevSummit.Blog.Api.Domain.Entities;
+using System.Data;
 
 namespace DevSummit.Blog.Api.Infrastructure.Clients;
 
@@ -30,10 +31,10 @@ public class UsersClient : IUsersClient
             Id = id,
             Name = userDto.Name,
             Email = userDto.Email,
-            Access = userDto.HasAccess
+            Role = userDto.Role
         };
     }
 }
 
 internal record UserViewDto(Guid Id, string Name, string Email);
-internal record UserDto(string Name, string Email, bool HasAccess);
+internal record UserDto(string Name, string Email, UserRoles Role);

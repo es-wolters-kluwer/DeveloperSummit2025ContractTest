@@ -25,7 +25,7 @@ public class UsersService : IUsersService
             }
 
             var user = await usersClient.GetUserById(userId);
-            return user.Access;
+            return user.Role != 0;
         }
         catch (Exception ex)
         {
