@@ -40,9 +40,11 @@ public class UsersController : ControllerBase
             logger.LogError("User not found");
             return NotFound();
         }
-        return new UserDto(user.Name, user.Email, (int)user.Role);
+        return new UserDto(user.Name, user.Email, HasAccess(user.Role), (int)user.Role);
     }
 
+    private static bool HasAccess(UserRoles role) => role != UserRoles.NoAccess;
+    
     // POST api/<UsersController>
     [HttpPost]
     public ActionResult<string> Post([FromBody] UserDto user)
@@ -89,4 +91,4 @@ public class UsersController : ControllerBase
 }
 
 public record UserViewDto(Guid Id, string Name, string Email);
-public record UserDto(string Name, string Email, int Role);
+public record UserDto(string Name, string Email, bool HasAccess, int Role);
