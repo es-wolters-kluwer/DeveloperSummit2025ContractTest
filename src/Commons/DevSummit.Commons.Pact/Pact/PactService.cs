@@ -28,9 +28,11 @@ public class PactService : IDisposable
             {
                 PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
             },
-            PactDir = "../../../../../../pacts",
+            PactDir = configuration["PactDir"],
             LogLevel = PactLogLevel.Information,
         };
+
+        PactFileHandler.CleanPactDirectory(configuration["PactDir"]);
     }
 
     public IPactBuilderV4 CreatePactBuilder(string consumer, string provider, ITestOutputHelper output)

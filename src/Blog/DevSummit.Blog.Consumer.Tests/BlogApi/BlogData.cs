@@ -26,7 +26,7 @@ internal static class BlogData
         {
             Id = Guid.Parse("2a69e26a-d392-41b1-82e6-68b3e4a869fb"),
             Name = "NotPermitedUser",
-            Email = "NotPermitedUser@user,com",
+            Email = "NotPermitedUser@user.com",
             Role = UserRoles.NotPermited
         }
     ];
